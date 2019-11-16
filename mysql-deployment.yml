@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqldb-deployment
+  labels:
+    app: media-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: mysqldb
+      app: media-app
+  template:
+    metadata:
+      name: mysqldb
+      labels:
+        name: mysqldb
+        app: media-app
+
+    spec:
+      containers:
+      - name: mysqldb
+        image: tanvir0102/mysqldb:latest
+        ports:
+        - containerPort: 3306

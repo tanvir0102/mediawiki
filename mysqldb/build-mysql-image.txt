@@ -1,0 +1,24 @@
+##MYSQL IMAGE PREPARATION:
+docker pull mysql/mysql-server:latest
+docker image ls
+docker run --name=mysqldb -e MYSQL_ROOT_HOST=% -p 3306:3306 -d --env MYSQL_ROOT_PASSWORD=1234 mysql/mysql-server
+docker logs mysqldb
+docker exec -it mysqldb mysql -u root -p
+
+>Execute below commands after login to mysql db:
+CREATE USER 'wiki'@'localhost' IDENTIFIED BY 'THISpasswordSHOULDbeCHANGED';
+CREATE DATABASE wikidatabase;
+GRANT ALL PRIVILEGES ON wikidatabase.* TO 'wiki'@'localhost';
+FLUSH PRIVILEGES;
+SHOW DATABASES;
+SHOW GRANTS FOR 'wiki'@'localhost';
+exit
+
+>now build the image:
+docker container ls -a
+docker commit <container_id> mysqldb
+docker image ls
+docker image tag mysqldb tanvir0102/mysqldb:latest
+docker image ls
+docker login
+docker push tanvir0102/mysqldb

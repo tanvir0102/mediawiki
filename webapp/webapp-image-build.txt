@@ -1,0 +1,9 @@
+##Webapplication Image Preparation:
+docker pull centos:latest
+docker image ls
+mkdir mediawikiapp
+cd mediawikiapp/
+wget https://releases.wikimedia.org/mediawiki/1.33/mediawiki-1.33.1.tar.gz
+tar -zxvf mediawiki-1.33.1.tar.gz
+mv mediawiki-1.33.1 mediawiki
+rm -rf mediawiki-1.33.1.tar.gz
