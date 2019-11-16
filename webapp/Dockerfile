@@ -1,6 +1,6 @@
-FROM centos
-RUN yum install httpd php php-mysql php-gd php-xml mysql
+FROM centos:7
+RUN yum install httpd php php-mysql php-gd php-xml mariadb-server mariadb php-mbstring
 WORKDIR /root/mediawikiapp
-COPY ./mediawiki/* /var/www/html
+COPY mediawiki/ /var/www/html/
 EXPOSE 80
 CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
