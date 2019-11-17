@@ -14,8 +14,6 @@ resource "google_container_cluster" "GKE-Cluster" {
 
   node_config {
     oauth_scopes = [
-      "https://www.googleapis.com/auth/logging.write",
-      "https://www.googleapis.com/auth/monitoring",
     ]
 
     metadata = {

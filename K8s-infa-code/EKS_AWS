@@ -1,0 +1,3 @@
+>Create an AWS IAM service role and a VPC
+>Create an Amazon EKS cluster
+>Configure kubectl for Amazon EKS cluster
